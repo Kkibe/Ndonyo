@@ -1,0 +1,13 @@
+.categories-page { padding: 25px;
+    .page-header { display: flex; justify-content: space-between; margin-bottom: 25px; h1 { font-size: 28px; } .btn-add { background: var(--gradient-primary); color: white; padding: 10px 20px; border-radius: 25px; border: none; cursor: pointer; } }
+    .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;
+      .category-card { background: var(--lite); border-radius: 16px; padding: 20px; text-align: center; box-shadow: var(--card-shadow);
+        .category-icon { font-size: 48px; margin-bottom: 10px; }
+        h3 { margin-bottom: 5px; }
+        p { color: var(--grey); font-size: 12px; }
+        .btn-edit, .btn-delete { margin: 5px; padding: 5px 15px; border-radius: 6px; cursor: pointer; }
+        .btn-edit { background: #2196f3; color: white; border: none; }
+        .btn-delete { background: #f44336; color: white; border: none; }
+      }
+    }
+  }

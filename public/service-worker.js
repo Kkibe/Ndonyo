@@ -60,7 +60,7 @@ self.addEventListener('push', (event) => {
   };
   
   event.waitUntil(
-    self.registration.showNotification(data.title || 'PowerKing Tips', options)
+    self.registration.showNotification(data.title || 'Ndonyo', options)
   );
 });
 

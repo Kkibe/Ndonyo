@@ -1,0 +1,10 @@
+.settings-page { padding: 25px;
+    .page-header { margin-bottom: 25px; h1 { font-size: 28px; } }
+    .settings-sections { display: grid; gap: 30px;
+      .settings-card { background: var(--lite); border-radius: 16px; padding: 25px; box-shadow: var(--card-shadow);
+        h2 { font-size: 20px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--blue); display: inline-block; }
+        .setting-group { margin-bottom: 20px; label { display: block; margin-bottom: 8px; font-weight: 600; } input, select { width: 100%; max-width: 400px; padding: 10px 15px; border: 1px solid #e0e0e0; border-radius: 8px; } }
+        .btn-save { padding: 10px 30px; background: var(--gradient-primary); color: white; border: none; border-radius: 25px; cursor: pointer; margin-top: 10px; }
+      }
+    }
+  }

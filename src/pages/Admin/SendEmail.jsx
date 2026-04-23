@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
-import { userService } from '../../services/firestore.service';
+import { userService } from '../../services/marketplace.service';
 import { useAuth } from '../../context/AuthContext';
 import { useDebounce } from '../../hooks/useDebounce';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';

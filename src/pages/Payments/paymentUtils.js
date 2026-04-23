@@ -1,6 +1,6 @@
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
-import { userService } from "../../services/firestore.service";
+import { userService } from "../../services/marketplace.service";
 import Swal from "sweetalert2";
 
 // Subscription plans mapping for different payment methods
@@ -228,7 +228,7 @@ export const getDefaultPlan = (paymentType) => {
 // Add transaction record
 export const addTransaction = async (userEmail, transactionData) => {
   try {
-    const { transactionService } = await import("../../services/firestore.service");
+    const { transactionService } = await import("../../services/marketplace.service");
     return await transactionService.addTransaction(userEmail, transactionData);
   } catch (error) {
     console.error("Error adding transaction:", error);
@@ -409,7 +409,7 @@ export const getRemainingSubscriptionDays = (userData) => {
 export const autoUpdateExpiredSubscription = async (userData, updateCallback) => {
   if (!isSubscriptionValid(userData) && userData?.isPremium) {
     try {
-      const { userService } = await import("../../services/firestore.service");
+      const { userService } = await import("../../services/marketplace.service");
       await userService.updateUser(userData.email, {
         isPremium: false,
         subscription: null,

@@ -1,0 +1,15 @@
+.support-page { padding: 25px;
+    .page-header { display: flex; justify-content: space-between; margin-bottom: 25px; h1 { font-size: 28px; } .btn-new { background: var(--gradient-primary); color: white; padding: 10px 20px; border-radius: 25px; border: none; cursor: pointer; } }
+    .tickets-list { display: grid; gap: 20px;
+      .ticket-card { background: var(--lite); border-radius: 16px; padding: 20px; box-shadow: var(--card-shadow);
+        .ticket-header { display: flex; justify-content: space-between; margin-bottom: 10px; .status { padding: 4px 12px; border-radius: 20px; font-size: 12px;
+          &.open { background: rgba(244, 67, 54, 0.15); color: #f44336; }
+          &.in-progress { background: rgba(255, 152, 0, 0.15); color: #ff9800; }
+          &.resolved { background: rgba(76, 175, 80, 0.15); color: #4caf50; }
+        } }
+        .ticket-subject { font-weight: 600; margin-bottom: 10px; }
+        .ticket-message { color: var(--grey); font-size: 13px; margin-bottom: 15px; }
+        .btn-reply { padding: 6px 15px; background: var(--gradient-primary); color: white; border: none; border-radius: 6px; cursor: pointer; }
+      }
+    }
+  }

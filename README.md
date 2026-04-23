@@ -1,7 +1,7 @@
-Here's a complete, professional README.md for your PowerKing Tips project:
+Here's a complete, professional README.md for your Ndonyo project:
 
 ```markdown
-# ⚡ PowerKing Tips - Football Predictions & Betting Platform
+# ⚡ NDONYO - Football Predictions & Betting Platform
 
 [![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://powerking-tips.onrender.com)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -11,7 +11,7 @@ Here's a complete, professional README.md for your PowerKing Tips project:
 
 ## 📋 Overview
 
-PowerKing Tips is a comprehensive football predictions and betting platform that provides users with expert analysis, daily tips, and premium VIP predictions. The platform offers free and premium subscription plans, multiple payment methods, and a complete user management system.
+Ndonyo is a comprehensive football predictions and betting platform that provides users with expert analysis, daily tips, and premium VIP predictions. The platform offers free and premium subscription plans, multiple payment methods, and a complete user management system.
 
 ### 🎯 Key Features
 
@@ -405,7 +405,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Email:** support@powerking-tips.com
 - **Telegram:** [@powerkingtips](https://t.me/powerkingtips)
-- **WhatsApp:** [PowerKing Tips Channel](https://whatsapp.com/channel/0029Vb3Louu9xVJktevbuZ2K)
+- **WhatsApp:** [Ndonyo Channel](https://whatsapp.com/channel/0029Vb3Louu9xVJktevbuZ2K)
 - **Twitter:** [@powerking_tips](https://twitter.com/powerking_tips)
 - **Instagram:** [@powerkingtips](https://instagram.com/powerkingtips)
 
@@ -432,7 +432,7 @@ If you find this project useful, please give it a star ⭐ on GitHub!
 
 ---
 
-**Built with ❤️ by the PowerKing Tips Team**
+**Built with ❤️ by the Ndonyo Team**
 
 *Last Updated: April 2026*
 ```

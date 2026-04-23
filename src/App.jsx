@@ -2,6 +2,14 @@ import React, { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import { HelmetProvider } from 'react-helmet-async';
+import Marketplace from './pages/Marketplace/Marketplace';
+import Cart from './pages/Cart/Cart';
+
+// Add these imports
+import AdminDashboard from './pages/Admin/AdminDashboard';
+import OrdersManagement from './pages/Admin/OrdersManagement';
+import ProductsManagement from './pages/Admin/ProductsManagement';
+
 
 // Lazy load components for code splitting
 const Topbar = lazy(() => import('./components/Topbar/Topbar'));
@@ -20,6 +28,7 @@ const AdminTips = lazy(() => import('./pages/Admin/AdminTips'));
 const EditTip = lazy(() => import('./pages/Admin/EditTip'));
 const About = lazy(() => import('./pages/About/About'));
 const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
+
 
 const ProtectedRoute = ({ children, adminOnly = false }) => {
   const { currentUser, isAdmin, loading } = useAuth();
@@ -55,8 +64,8 @@ function App() {
           <main>
             <Routes>
               {/* Public Routes */}
-              <Route path="/" element={<Home />} />
-              <Route path="/tips" element={<Tips />} />
+              <Route path="/" element={<Home/>} />
+              <Route path="/marketplace" element={<Marketplace />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/about" element={<About />} />
@@ -130,6 +139,20 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+
+<Route path="/marketplace" element={<Marketplace />} />
+<Route path="/cart" element={
+  <ProtectedRoute>
+    <Cart />
+  </ProtectedRoute>
+} />
+
+// In your Routes, add this single admin route instead of multiple ones
+<Route path="/admin/*" element={
+  <ProtectedRoute adminOnly>
+    <AdminDashboard />
+  </ProtectedRoute>
+} />
 
               {/* 404 Not Found */}
               <Route path="*" element={<NotFound />} />

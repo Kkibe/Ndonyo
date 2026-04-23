@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import {
-  userService,
-  transactionService,
-} from '../../services/firestore.service';
+import { userService } from '../../services/marketplace.service';
+import { transactionService } from '../../services/transaction.service';
 import { useAuth } from '../../context/AuthContext';
 import { usePagination } from '../../hooks/usePagination';
 import Loader from '../../components/Loader/Loader';
@@ -16,6 +14,8 @@ export default function UserProfile() {
   const [profileUser, setProfileUser] = useState(null);
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
+  // Add state for active tab
+  const [activeTab, setActiveTab] = useState('profile');
   const {
     page,
     pageSize,
@@ -159,7 +159,20 @@ export default function UserProfile() {
         </div>
       </div>
 
-      <div className="transactions-section">
+      // Add tabs navigation in the JSX after the header
+<div className="profile-tabs">
+  <button className={`tab-btn ${activeTab === 'profile' ? 'active' : ''}`} onClick={() => setActiveTab('profile')}>Profile</button>
+  <button className={`tab-btn ${activeTab === 'transactions' ? 'active' : ''}`} onClick={() => setActiveTab('transactions')}>Transactions</button>
+  <button className={`tab-btn ${activeTab === 'orders' ? 'active' : ''}`} onClick={() => setActiveTab('orders')}>Orders</button>
+  <button className={`tab-btn ${activeTab === 'wishlist' ? 'active' : ''}`} onClick={() => setActiveTab('wishlist')}>Wishlist</button>
+  <button className={`tab-btn ${activeTab === 'notifications' ? 'active' : ''}`} onClick={() => setActiveTab('notifications')}>Notifications</button>
+  <button className={`tab-btn ${activeTab === 'settings' ? 'active' : ''}`} onClick={() => setActiveTab('settings')}>Settings</button>
+</div>
+
+
+// Conditional rendering for each tab
+{activeTab === 'profile' && <div className="profile-content">...</div>}
+{activeTab === 'transactions' && <div className="transactions-section">
         <h2 className="section-title">Transaction History</h2>
         {transactions.length === 0 && !transLoading ? (
           <div className="no-transactions">
@@ -224,7 +237,13 @@ export default function UserProfile() {
             )}
           </div>
         )}
-      </div>
+      </div>}
+{activeTab === 'orders' && <div className="orders-section">Orders content</div>}
+{activeTab === 'wishlist' && <div className="wishlist-section">Wishlist content</div>}
+{activeTab === 'notifications' && <div className="notifications-section">Notifications content</div>}
+{activeTab === 'settings' && <div className="settings-section">Settings content</div>}
+
+      
       
       <div className="explore">
         <button className="explore-btn" onClick={() => navigate('/')}>

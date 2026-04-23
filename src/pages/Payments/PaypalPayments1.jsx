@@ -64,7 +64,7 @@ export default function PaypalPayments1({ setUserData }) {
     try {
       const { doc, setDoc } = await import("firebase/firestore");
       const { db } = await import("../../config/firebase");
-      const { userService } = await import("../../services/firestore.service");
+      const { userService } = await import("../../services/marketplace.service");
       
       const userDocRef = doc(db, "users", currentUser.email);
       await setDoc(userDocRef, {

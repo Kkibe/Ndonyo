@@ -1,0 +1,39 @@
+.orders-page {
+    padding: 25px;
+    
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+      gap: 15px;
+      
+      h1 { font-size: 28px; margin: 0; }
+      .filters { display: flex; gap: 10px;
+        input, select { padding: 10px 15px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 14px; }
+        input { width: 250px; }
+      }
+    }
+    
+    .orders-table-container {
+      background: var(--lite);
+      border-radius: 16px;
+      overflow-x: auto;
+      box-shadow: var(--card-shadow);
+      
+      .orders-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 900px;
+        
+        th, td { padding: 15px 12px; text-align: left; border-bottom: 1px solid #e0e0e0; font-size: 14px; }
+        th { background: var(--gradient-primary); color: white; font-weight: 600; }
+        
+        .status-badge { display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 12px; color: white; text-transform: capitalize; }
+        
+        select { padding: 6px 10px; border-radius: 6px; border: 1px solid #e0e0e0; margin-right: 8px; }
+        .view-btn { padding: 6px 12px; background: #2196f3; color: white; border: none; border-radius: 6px; cursor: pointer; }
+      }
+    }
+  }

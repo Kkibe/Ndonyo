@@ -1,0 +1,13 @@
+.disputes-page { padding: 25px;
+    .page-header { margin-bottom: 25px; h1 { font-size: 28px; } }
+    .disputes-table-container { background: var(--lite); border-radius: 16px; overflow-x: auto; box-shadow: var(--card-shadow);
+      .disputes-table { width: 100%; border-collapse: collapse; min-width: 900px;
+        th, td { padding: 15px 12px; text-align: left; border-bottom: 1px solid #e0e0e0; font-size: 14px; }
+        th { background: var(--gradient-primary); color: white; font-weight: 600; }
+        .priority-high { color: #f44336; font-weight: 600; }
+        .priority-medium { color: #ff9800; font-weight: 600; }
+        .priority-low { color: #4caf50; font-weight: 600; }
+        .btn-resolve { padding: 6px 15px; background: var(--gradient-primary); color: white; border: none; border-radius: 6px; cursor: pointer; }
+      }
+    }
+  }

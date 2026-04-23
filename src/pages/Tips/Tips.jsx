@@ -6,7 +6,7 @@ import React, {
   lazy,
   Suspense,
 } from 'react';
-import { tipsService } from '../../services/firestore.service';
+import { tipsService } from '../../services/marketplace.service';
 import { useAuth } from '../../context/AuthContext';
 import { usePagination } from '../../hooks/usePagination';
 import Loader from '../../components/Loader/Loader';

@@ -1,0 +1,15 @@
+.returns-page { padding: 25px;
+    .page-header { margin-bottom: 25px; h1 { font-size: 28px; } }
+    .returns-table-container { background: var(--lite); border-radius: 16px; overflow-x: auto; box-shadow: var(--card-shadow);
+      .returns-table { width: 100%; border-collapse: collapse; min-width: 800px;
+        th, td { padding: 15px 12px; text-align: left; border-bottom: 1px solid #e0e0e0; font-size: 14px; }
+        th { background: var(--gradient-primary); color: white; font-weight: 600; }
+        .status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px;
+          &.pending { background: rgba(255, 152, 0, 0.15); color: #ff9800; }
+          &.approved { background: rgba(76, 175, 80, 0.15); color: #4caf50; }
+          &.rejected { background: rgba(244, 67, 54, 0.15); color: #f44336; }
+        }
+        .btn-action { padding: 6px 15px; background: var(--gradient-primary); color: white; border: none; border-radius: 6px; cursor: pointer; }
+      }
+    }
+  }

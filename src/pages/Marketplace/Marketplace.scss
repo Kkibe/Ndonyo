@@ -1,0 +1,324 @@
+.marketplace {
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  
+  .marketplace-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+    .header-content {
+      text-align: center;
+      flex: 1;
+      
+      h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      
+      p {
+        color: var(--grey);
+      }
+    }
+    
+    .cart-icon {
+      position: relative;
+      cursor: pointer;
+      padding: 10px;
+      background: var(--lite);
+      border-radius: 50%;
+      box-shadow: var(--card-shadow);
+      transition: var(--transition-smooth);
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--card-hover-shadow);
+      }
+      
+      svg {
+        font-size: 24px;
+        color: var(--dark-blue);
+      }
+      
+      .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: var(--even);
+        color: white;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 10px;
+        min-width: 18px;
+        text-align: center;
+      }
+    }
+  }
+  
+  .marketplace-filters {
+    margin-bottom: 30px;
+    
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      
+      form {
+        flex: 1;
+        display: flex;
+        
+        input {
+          flex: 1;
+          padding: 12px 16px;
+          border: 1px solid #e0e0e0;
+          border-radius: 30px 0 0 30px;
+          font-size: 14px;
+          
+          &:focus {
+            outline: none;
+            border-color: var(--blue);
+          }
+        }
+        
+        .search-btn {
+          padding: 12px 20px;
+          background: var(--gradient-primary);
+          border: none;
+          border-radius: 0 30px 30px 0;
+          cursor: pointer;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          
+          &:hover {
+            background: var(--dark-blue);
+          }
+        }
+      }
+      
+      .filter-toggle {
+        display: none;
+        padding: 12px 20px;
+        background: #f5f5f5;
+        border: 1px solid #e0e0e0;
+        border-radius: 30px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        
+        @media (max-width: 768px) {
+          display: flex;
+        }
+      }
+    }
+    
+    .filters-panel {
+      background: var(--lite);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--card-shadow);
+      
+      @media (max-width: 768px) {
+        display: none;
+        
+        &.show {
+          display: block;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 1000;
+          border-radius: 0;
+          overflow-y: auto;
+          padding: 20px;
+        }
+      }
+      
+      .filter-section {
+        margin-bottom: 20px;
+        
+        label {
+          display: block;
+          font-weight: 600;
+          margin-bottom: 12px;
+          color: var(--dark);
+          font-size: 14px;
+        }
+        
+        .category-chips,
+        .price-chips,
+        .sort-chips {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        
+        .category-chips {
+          max-height: 100px;
+          overflow-y: auto;
+          
+          &::-webkit-scrollbar {
+            height: 4px;
+          }
+        }
+        
+        .category-chip,
+        .price-chip,
+        .sort-chip {
+          padding: 8px 16px;
+          background: #f5f5f5;
+          border: 1px solid #e0e0e0;
+          border-radius: 30px;
+          cursor: pointer;
+          transition: var(--transition-smooth);
+          font-size: 13px;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          
+          &:hover {
+            background: #e8e8e8;
+            transform: translateY(-1px);
+          }
+          
+          &.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+          }
+          
+          .chip-icon {
+            font-size: 14px;
+          }
+        }
+      }
+      
+      .clear-filters {
+        width: 100%;
+        padding: 10px;
+        background: #f5f5f5;
+        border: 1px solid #e0e0e0;
+        border-radius: 30px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 13px;
+        transition: var(--transition-smooth);
+        
+        &:hover {
+          background: #e8e8e8;
+        }
+      }
+    }
+  }
+  
+  .results-info {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    color: var(--grey);
+    font-size: 14px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 15px;
+    }
+  }
+  
+  .no-products {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--lite);
+    border-radius: 16px;
+    
+    h3 {
+      margin-bottom: 10px;
+    }
+    
+    p {
+      color: var(--grey);
+      margin-bottom: 20px;
+    }
+    
+    .btn-clear {
+      padding: 10px 20px;
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+  }
+  
+  .load-more {
+    text-align: center;
+    margin-top: 40px;
+    
+    button {
+      padding: 12px 30px;
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+      
+      &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: var(--card-shadow);
+      }
+      
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .marketplace {
+    padding: 20px 15px;
+    
+    .marketplace-header h1 {
+      font-size: 28px;
+    }
+    
+    .filters-panel.show {
+      .filter-section .category-chips,
+      .filter-section .price-chips,
+      .filter-section .sort-chips {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .marketplace {
+    .products-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

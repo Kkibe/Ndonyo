@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { tipsService } from '../../services/firestore.service';
+import { tipsService } from '../../services/marketplace.service';
 import Loader from '../../components/Loader/Loader';
 import AppHelmet from '../../components/AppHelmet';
 import { useNavigate } from 'react-router-dom';

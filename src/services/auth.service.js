@@ -9,16 +9,12 @@ import {
   signInWithPopup
 } from "firebase/auth";
 import { auth } from "../config/firebase";
-import { userService } from "./firestore.service";
+import { userService } from "./marketplace.service";
 
 class AuthService {
   async login(email, password) {
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const userData = await userService.getUser(email);
       return { success: true, user: userCredential.user, userData };
     } catch (error) {
@@ -28,11 +24,7 @@ class AuthService {
 
   async register(email, password, username) {
     try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(userCredential.user, { displayName: username });
       await userService.createUser(email, username);
       await sendEmailVerification(userCredential.user);
@@ -46,12 +38,9 @@ class AuthService {
     try {
       await sendPasswordResetEmail(auth, email, {
         url: window.location.origin + '/login',
-        handleCodeInApp: false,
+        handleCodeInApp: false
       });
-      return {
-        success: true,
-        message: 'Password reset email sent. Check your inbox.',
-      };
+      return { success: true, message: "Password reset email sent. Check your inbox." };
     } catch (error) {
       return { success: false, error: this.getErrorMessage(error.code) };
     }
@@ -80,10 +69,8 @@ class AuthService {
       
       return { success: true, user };
     } catch (error) {
-      console.log(error)
       let errorMessage = this.getErrorMessage(error.code);
       
-      // Handle specific Google auth errors
       if (error.code === 'auth/popup-closed-by-user') {
         errorMessage = 'Sign in cancelled. Please try again.';
       } else if (error.code === 'auth/popup-blocked') {
@@ -107,7 +94,7 @@ class AuthService {
       'auth/wrong-password': 'Incorrect password.',
       'auth/email-already-in-use': 'An account already exists with this email.',
       'auth/weak-password': 'Password should be at least 6 characters.',
-      'auth/too-many-requests': 'Too many attempts. Please try again later.',
+      'auth/too-many-requests': 'Too many attempts. Please try again later.'
     };
     return errors[code] || 'An error occurred. Please try again.';
   }

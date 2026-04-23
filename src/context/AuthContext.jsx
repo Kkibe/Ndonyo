@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
   // Check if user is admin
   const checkAdminStatus = useCallback((email) => {
     return (
-      email === 'kkibetkkoir@gmail.com' || email === 'arovanzgamez@gmail.com'
+      email === 'kkibetkkoir@gmail.com' || email === 'kkibetkkorir@gmail.com'
     );
   }, []);
 
@@ -79,7 +79,7 @@ export const AuthProvider = ({ children }) => {
             // Auto-update if subscription expired
             if (data.isPremium && !isValidSubscription) {
               // Subscription expired - trigger update
-              import('../services/firestore.service').then(
+              import('../services/marketplace.service').then(
                 ({ userService }) => {
                   userService.updateUser(email, {
                     isPremium: false,
@@ -140,7 +140,7 @@ export const AuthProvider = ({ children }) => {
   // Manual refresh function
   const refreshUserData = useCallback(async () => {
     if (currentUser?.email) {
-      const { userService } = await import('../services/firestore.service');
+      const { userService } = await import('../services/marketplace.service');
       const data = await userService.getUser(currentUser.email);
       setUserData(data);
       setIsPremium(data?.isPremium && checkSubscriptionValidity(data));

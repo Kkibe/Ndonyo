@@ -1,0 +1,15 @@
+.loyalty-page { padding: 25px;
+    .page-header { margin-bottom: 25px; h1 { font-size: 28px; } }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px;
+      .stat-card { background: var(--lite); border-radius: 16px; padding: 20px; text-align: center; box-shadow: var(--card-shadow);
+        h3 { font-size: 32px; margin: 0; color: var(--dark-blue); }
+        p { margin: 5px 0 0; color: var(--grey); }
+      }
+    }
+    .tiers-list { display: grid; gap: 15px;
+      .tier-card { background: var(--lite); border-radius: 16px; padding: 20px; box-shadow: var(--card-shadow); display: flex; justify-content: space-between; align-items: center;
+        .tier-info { h3 { margin-bottom: 5px; } p { color: var(--grey); font-size: 12px; } }
+        .tier-points { font-weight: 700; color: var(--dark-blue); }
+      }
+    }
+  }
